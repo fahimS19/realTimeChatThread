@@ -22,9 +22,6 @@ It supports real-time threads, notifications, direct messaging, and image upload
 - [Database Setup & Migrations](#database-setup--migrations)
 - [Running the Application](#running-the-application)
 - [Realtime Capabilities](#realtime-capabilities)
-- [Usage](#usage)
-- [Notes & Tips](#notes--tips)
-- [License](#license)
 
 ---
 
@@ -117,7 +114,9 @@ npm install
 
 ## Environment Variables
 
-Create a .env file inside the backend directory:
+- Backend environment variables
+
+Create a .env file inside the **backend** directory:
 
 ```text
 # Server
@@ -144,11 +143,27 @@ CLOUDINARY_API_SECRET=your-api-secret
 Note: Replace all placeholder values with your actual credentials.
 ```
 
+Create a `.env.local` file inside the **frontend** directory and add the following variables:
+
+- Frontend environment variables
+
+```text
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
+
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
+CLERK_SECRET_KEY=your_secret_key
+
+
+Note: Replace all placeholder values with your actual credentials.
+```
+
 ## Database Setup & Migrations
 
-1. Start PostgreSQL Using Docker
-
-From the project root:
+1. Start PostgreSQL Using Docker from the project root:
 
 ```bash
 docker compose up -d
@@ -156,9 +171,8 @@ docker compose up -d
 
 This will:
 
-Start a PostgreSQL container
-
-Expose the database on localhost:5432
+-Start a PostgreSQL container
+-Expose the database on localhost:5432
 
 2. Run Database Migrations
 
@@ -169,46 +183,39 @@ npm run migrate
 
 This command creates all required database tables.
 
-If you encounter issues, verify your database credentials in .env.
+If you encounter issues, verify your database credentials in .env folder
 
-Running the Application
-Start the Backend Server
+## Running the Application
+
+_Start the Backend Server_
 
 ```bash
 cd backend
 npm run dev
 ```
 
-Backend will be available at:
-
-http://localhost:5000
+Backend will be available at: http://localhost:5000
 
 Socket.IO is initialized on the same server for real-time communication.
 
-Start the Frontend Server
+_Start the Frontend Server_
 
 ```bash
 cd ../frontend
 npm run dev
 ```
 
-Frontend will be available at:
-
-http://localhost:3000
-
+Frontend will be available at: http://localhost:3000
 The frontend automatically connects to the backend API and WebSocket server.
 
 ## Realtime Capabilities
 
 - Live thread updates (replies, likes)
-
 - Instant notification delivery
-
 - Real-time unread notification counts
-
 - Private messaging with WebSocket-based delivery
 
-Relevant backend logic can be found in:
+_Relevant backend logic can be found in:_
 
-backend/realTime/io.ts
-backend/modules/notifications/
+- backend/realTime/io.ts
+- backend/modules/notifications/
