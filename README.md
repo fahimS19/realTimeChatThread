@@ -1,8 +1,4 @@
-# realTimeChat & ThreadHub
-
 ### Real-Time Thread & Chat Application
-
-![Project Banner](path-to-your-banner-or-screenshot.png)
 
 **realTimeChat & ThreadHub** is a modern, full-stack real-time forum and messaging platform built with **Next.js, Express, PostgreSQL, Socket.IO, and Clerk**.  
 It supports real-time threads, notifications, direct messaging, and image uploads, all wrapped in a responsive and scalable architecture.
@@ -171,8 +167,8 @@ docker compose up -d
 
 This will:
 
--Start a PostgreSQL container
--Expose the database on localhost:5432
+i. Start a PostgreSQL container
+ii. Expose the database on localhost:5432
 
 2. Run Database Migrations
 
